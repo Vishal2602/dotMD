@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Vishal2602/mark-down-blog#readme",
   "dependencies": {
     "dompurify": "^2.2.0",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "jsdom": "^16.4.0",

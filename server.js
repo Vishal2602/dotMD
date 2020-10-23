@@ -4,12 +4,17 @@ const methodOverride = require("method-override");
 const Article = require("./models/article");
 const articalRouter = require("./routes/articles");
 const app = express();
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost/markdownblog", {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
 });
+
+const db = mongoose.connection;
+db.on("error", (error) => console.error(error));
+db.once("open", () => console.log("DATABASE CONNECTED"));
 
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
